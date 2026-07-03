@@ -1,0 +1,28 @@
+import { Outfit, Ovo } from "next/font/google";
+import "./globals.css";
+
+const outfit = Outfit({
+  variable: "--font-geist-sans",
+  subsets: ["latin"], weight: ["400", "500", "600", "700"]
+});
+
+const ovo = Ovo({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],weight : ["400"]
+});
+
+export const metadata = {
+  title: "Luthfi's Portofolio",
+  description: "Personal Website",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html
+      lang="en"
+      className={`${outfit.className} ${ovo.className} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
