@@ -20,26 +20,3 @@ Selamat datang di ruang digital saya! Saya adalah pengembang web yang berfokus p
 </p>
 
 ---
-
-### 🛠️ Proyek Pilihan
-
-*   **[DarahKita]**: Platform full-stack untuk menghubungkan pendonor darah dengan pasien yang membutuhkan.
-*   **[Klinik Sederhana]**: Sistem manajemen klinik untuk efisiensi administrasi medis.
-*   **[Personal Portfolio]**: Website portofolio interaktif yang dibangun dengan React & Tailwind CSS.
-
----
-
-### 📈 GitHub Stats
-![Luthfi's GitHub stats](https://github-readme-stats.vercel.app/api?username=[USERNAME_GITHUB_KAMU]&show_icons=true&theme=tokyonight)
-
----
-
-### 📫 Let's Connect!
-
-*   **Email**: [Alamat Email Kamu]
-*   **LinkedIn**: [Link Profil LinkedIn Kamu]
-*   **Lokasi**: Bandung, Indonesia 🇮🇩
-
-*"Always coding, always learning, and aiming to build something that matters."*
-
----
