@@ -8,7 +8,7 @@ const outfit = Outfit({
 
 const ovo = Ovo({
   variable: "--font-geist-mono",
-  subsets: ["latin"],weight : ["400"]
+  subsets: ["latin"], weight: ["400"]
 });
 
 export const metadata = {
@@ -19,10 +19,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
-      className={`${outfit.className} ${ovo.className} h-full antialiased`}
+      lang="en" className="scroll-smooth"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body
+        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}>
+        {children}
+      </body>
     </html>
   );
 }
