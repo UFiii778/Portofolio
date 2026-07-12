@@ -5,11 +5,20 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react"
 import RotatingText from "./reactbits/RotatingText";
-
+import Aurora from "./reactbits/Aurora";
 
 const Header = () => {
     return (
         <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+
+            <div className="absolute inset-0 pointer-events-none z-0 opacity-35">
+                <Aurora
+                    colorStops={["#0ea5e9", "#6366f1", "#a855f7"]} // Kombinasi warna Biru, Indigo, & Ungu
+                    blend={0.5}
+                    amplitude={1.0}
+                    speed={0.6}
+                />
+            </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-3 font-Ovo font-medium text-black">
                 <motion.span 
@@ -54,7 +63,7 @@ const Header = () => {
                 />
             </motion.h1>
             <p>
-                I am a Junior Developer & Pilot!
+                Building functional, interactive, and user-centric web applications
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
                 <a href="#contact" className="px-10 py-3 border border-white rounded-full bg-sky-800 text-white flex items-center gap-2">Contact me <Image src={assets.right_arrow_white} alt="" className="w-4" /></a>

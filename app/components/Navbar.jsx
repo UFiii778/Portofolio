@@ -73,7 +73,7 @@ const Navbar = () => {
                         items={[
                             { label: 'Home', href: '#top' },
                             { label: 'About', href: '#about' },
-                            { label: 'Services', href: '#services' },
+                            { label: 'Gallery', href: '#gallery' },
                             { label: 'Work', href: '#work'},
                             { label: 'Contact', href: '#contact' }
                         ]}
