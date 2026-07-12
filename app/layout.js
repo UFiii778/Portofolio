@@ -2,13 +2,16 @@ import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
-  variable: "--font-geist-sans",
-  subsets: ["latin"], weight: ["400", "500", "600", "700"]
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-outfit", // mendefinisikan variabel CSS
 });
 
+// 2. Konfigurasi font Ovo
 const ovo = Ovo({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],weight : ["400"]
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ovo", // mendefinisikan variabel CSS
 });
 
 export const metadata = {
@@ -19,10 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
-      className={`${outfit.className} ${ovo.className} h-full antialiased`}
+      lang="en" className="scroll-smooth"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${outfit.variable} ${ovo.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
