@@ -1,3 +1,5 @@
+"use client";
+
 import { assets, infoList } from "@/assets/assets";
 import { Import } from "lucide-react";
 import Image from "next/image";
