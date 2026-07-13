@@ -51,7 +51,6 @@ const Navbar = () => {
     const menuLinks = [
         { href: "#top", label: "Home" },
         { href: "#about", label: "About Me" },
-        { href: "#services", label: "Services" },
         { href: "#work", label: "My Work" },
         { href: "#contact", label: "Contact Me" }
     ];
@@ -73,7 +72,6 @@ const Navbar = () => {
                         items={[
                             { label: 'Home', href: '#top' },
                             { label: 'About', href: '#about' },
-                            { label: 'Gallery', href: '#gallery' },
                             { label: 'Work', href: '#work'},
                             { label: 'Contact', href: '#contact' }
                         ]}
