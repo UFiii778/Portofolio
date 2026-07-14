@@ -22,7 +22,7 @@ const Footer = () => {
     },
     {
       name: "Spotify",
-      href: "https://https://open.spotify.com/user/316teau73kzdhsqsvbzufq2nii64?si=d982cad91a604b25.com",
+      href: "https://open.spotify.com/user/316teau73kzdhsqsvbzufq2nii64?si=d982cad91a604b25.com",
       icon: <FaSpotify className="w-5 h-5" />,
     },
      {
