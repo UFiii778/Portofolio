@@ -4,13 +4,13 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react"; // Menggunakan ikon X dari lucide-react untuk tombol close
+import { X } from "lucide-react"; 
 
 const Certificates = () => {
-    // 🟩 State untuk menyimpan data sertifikat yang sedang aktif dibuka di modal
+
     const [selectedCert, setSelectedCert] = useState(null);
 
-    // Data sertifikat kamu
+
     const certificateList = [
         {
             title: "RevoU Certificate",
@@ -47,7 +47,7 @@ const Certificates = () => {
                 </p>
             </motion.div>
 
-            {/* Grid Kartu Sertifikat */}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
                 {certificateList.map((cert, index) => (
                     <motion.div
@@ -81,28 +81,28 @@ const Certificates = () => {
                 ))}
             </div>
 
-            {/* 🟩 MODAL POP-UP LIGHTBOX (Hanya muncul jika selectedCert tidak bernilai null) */}
+
             <AnimatePresence>
                 {selectedCert && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        // Klik di area overlay hitam untuk menutup modal
+
                         onClick={() => setSelectedCert(null)}
                         className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
                     >
-                        {/* Kontainer Gambar */}
+
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            // Mencegah klik di dalam gambar ikut menutup modal
+
                             onClick={(e) => e.stopPropagation()}
                             className="relative max-w-4xl w-full bg-[#130f35]/40 border border-white/10 rounded-2xl p-2 shadow-2xl flex flex-col"
                         >
-                            {/* Tombol Close Silang */}
+
                             <button
                                 onClick={() => setSelectedCert(null)}
                                 className="absolute -top-12 right-0 sm:right-[-10px] sm:-top-12 bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-all duration-200 group border border-white/10 focus:outline-none"
@@ -110,7 +110,7 @@ const Certificates = () => {
                                 <X className="w-5 h-5 group-hover:rotate-90 duration-300" />
                             </button>
 
-                            {/* Gambar Sertifikat Besar */}
+
                             <div className="w-full overflow-hidden rounded-xl bg-gray-900 aspect-[4/3] relative">
                                 <Image
                                     src={selectedCert.imageSrc}
@@ -122,7 +122,7 @@ const Certificates = () => {
                                 />
                             </div>
 
-                            {/* Info Teks Singkat di Bawah Gambar Modal */}K
+
                             <div className="p-4 text-center">
                                 <h3 className="text-xl font-bold text-white font-Ovo">
                                     {selectedCert.title}
