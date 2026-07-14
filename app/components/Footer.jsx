@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="flex items-center gap-4">
           {socials.map((social, index) => (
             <a
-              key={index} // Menggunakan index karena ada nama duplikat pada LinkedIn
+              key={index} 
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -62,7 +62,6 @@ const Footer = () => {
 
       </div>
 
-      {/* 🟩 COPYRIGHT & FOOTNOTE BAR (Warna teks disesuaikan abu-abu redup agar estetik) */}
       <div className="w-full max-w-5xl pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
         <p>© {new Date().getFullYear()} Luthfi Abdillah. All rights reserved.</p>
         <p className="font-light">
