@@ -5,14 +5,14 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowUpRight, Code2, Cpu, Globe, Layers, Layout } from "lucide-react";
-import Aurora from "./reactbits/Aurora"; // Pastikan path import Aurora sudah benar sesuai struktur foldermu
+import Aurora from "./reactbits/Aurora";
 
 const projects = [
   {
     id: 1,
     title: "Darahkita Web",
     description: "We are an innovative digital blood platform designed to accelerate the process of matching donors with patients.",
-    image: assets.thumbnailD, // 🟩 Diubah menjadi 'image' agar sinkron dengan pemanggilan di bawah
+    image: assets.thumbnailD, 
     liveUrl: "https://darahkita.web.id/",
     techIcons: [Cpu, Globe, Layers, Layout],
   },
@@ -20,7 +20,7 @@ const projects = [
     id: 2,
     title: "SowanQR - Digital Guest Book",
     description: "SowanQR is a modern visitor management web application designed to efficiently digitize the check-in process for institutions or schools.",
-    image: assets.thumbnailS, // 🟩 Diubah menjadi 'image' agar sinkron dengan pemanggilan di bawah
+    image: assets.thumbnailS, 
     liveUrl: "https://sowanqr.vercel.app/",
     techIcons: [Code2, Globe, Layout],
   },
