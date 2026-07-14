@@ -2,7 +2,7 @@
 
 import { assets } from '@/assets/assets';
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react'; // 🟩 Tambah useEffect
+import React, { useState, useEffect } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import PillNav from './reactbits/PillNav';
 import logo from '@/public/logo_dark.png';
@@ -10,41 +10,31 @@ import { label } from 'framer-motion/client';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    
-    // 🟩 STATE BARU: Untuk melacak status visibilitas navbar dan posisi scroll terakhir
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
 
-    // 🟩 EFFECT BARU: Logika pendeteksi arah scroll browser
     useEffect(() => {
         const controlNavbar = () => {
             const currentScrollY = window.scrollY;
-
-            // Jika di-scroll ke bawah dan posisinya sudah melewati batas 80px, sembunyikan navbar
             if (currentScrollY > lastScrollY && currentScrollY > 80) {
                 setIsVisible(false);
             } else {
-                // Jika di-scroll ke atas, langsung munculkan kembali
                 setIsVisible(true);
             }
 
-            // Simpan posisi scroll saat ini sebagai patokan berikutnya
             setLastScrollY(currentScrollY);
         };
 
-        // Pasang event listener scroll ke window browser
         window.addEventListener('scroll', controlNavbar);
 
-        // Bersihkan event listener saat komponen unmount agar tidak terjadi kebocoran memori
         return () => {
             window.removeEventListener('scroll', controlNavbar);
         };
     }, [lastScrollY]);
 
-    // Varian Animasi untuk Kontainer Menu Mobile
     const menuVariants = {
         hidden: { x: "100%" },
         visible: {
