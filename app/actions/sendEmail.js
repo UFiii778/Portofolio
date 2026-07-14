@@ -29,7 +29,7 @@ export async function sendEmail(formData) {
           <tr>
             <td style="background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%); padding: 35px 40px; text-align: center;">
               <p style="margin: 5px 0 0 0; color: #e0e7ff; font-size: 20px; font-weight: 300; letter-spacing: 1px; text-transform: uppercase;">
-                New Portfolio Message Received
+                Portfolio Message Received
               </p>
             </td>
           </tr>
@@ -86,9 +86,9 @@ export async function sendEmail(formData) {
 
   try {
     await transporter.sendMail(mailOptions);
-    return { success: true, message: "Pesan berhasil dikirim via Nodemailer!" };
+    return { success: true, message: "Message sent successfully" };
   } catch (error) {
     console.error("Nodemailer Error:", error);
-    return { success: false, message: "Gagal mengirim email. Silakan coba lagi." };
+    return { success: false, message: "Failed to send message; please try again or check your network" };
   }
 }
