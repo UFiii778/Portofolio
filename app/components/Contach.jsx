@@ -3,7 +3,7 @@
 import { assets } from "@/assets/assets";
 import React, { useState } from "react";
 import Image from "next/image";
-import { sendEmail } from "@/app/actions/sendEmail"; // IMPORT SERVER ACTION KAMU
+import { sendEmail } from "@/app/actions/sendEmail";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, MessageSquare, MapPin, Phone, Loader2, CheckCircle2 } from "lucide-react";
 import Aurora from "./reactbits/Aurora";
@@ -11,9 +11,8 @@ import Aurora from "./reactbits/Aurora";
 const Contact = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false); // State baru untuk tracking sukses animasi
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // UBAH FUNGSI ON SUBMIT MENJADI SEPERTI INI
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -22,15 +21,14 @@ const Contact = () => {
 
     const formData = new FormData(event.target);
 
-    // Jalankan server action Nodemailer
     const response = await sendEmail(formData);
 
     if (response.success) {
       setResult(response.message);
       setIsSuccess(true);
-      event.target.reset(); // Kosongkan form kembali
+      event.target.reset();
       
-      // Reset status sukses setelah 4 detik agar form bisa digunakan lagi
+
       setTimeout(() => {
         setIsSuccess(false);
         setResult("");
@@ -44,7 +42,7 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full bg-white text-black py-20 px-[5%] sm:px-[10%] min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       
-      {/* Efek Aurora */}
+    
       <div className="absolute inset-0 pointer-events-none z-0 opacity-25 transform rotate-180">
         <Aurora
           colorStops={["#0ea5e9", "#6366f1", "#a855f7"]} 
@@ -54,10 +52,10 @@ const Contact = () => {
         />
       </div>
 
-      {/* Main Container Layout */}
+     
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 mt-10">
         
-        {/* LEFT COLUMN: Teks, Foto Profil, dan Kontak Info */}
+
         <div className="lg:col-span-7 flex flex-col justify-center">
           <span className="text-sm font-semibold text-sky-600 mb-4 block tracking-wider uppercase">
             Contact us
@@ -83,7 +81,6 @@ const Contact = () => {
             Have a project in mind, a question, or just want to say hi? Drop a message below, and it will land straight in my inbox!
           </p>
 
-          {/* Grid Informasi Kontak */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10">
             {/* Email */}
             <div className="flex gap-4">
@@ -135,7 +132,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Formulir Kontak dengan Animasi */}
         <div className="lg:col-span-5">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -146,7 +142,6 @@ const Contact = () => {
           >
             <AnimatePresence mode="wait">
               {!isSuccess ? (
-                // TAMPILAN FORM UTAMA
                 <motion.form 
                   key="contact-form"
                   onSubmit={onSubmit} 
@@ -184,7 +179,6 @@ const Contact = () => {
                     </label>
                   </div>
 
-                  {/* Tombol Submit Dinamis (Loading/Send) */}
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
@@ -200,13 +194,12 @@ const Contact = () => {
                     )}
                   </button>
                   
-                  {/* Status teks jika terjadi error atau info loading manual */}
                   {result && !isSuccess && (
                     <p className="text-xs text-center text-gray-500 mt-2">{result}</p>
                   )}
                 </motion.form>
               ) : (
-                // TAMPILAN ANIMASI SUKSES (Setelah Berhasil Terkirim)
+
                 <motion.div 
                   key="success-message"
                   initial={{ opacity: 0, scale: 0.8 }}
