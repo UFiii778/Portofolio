@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import Preloader from "./components/Preloader"; // 🟩 PERBAIKAN 1: Path disesuaikan ke relative path
+import Preloader from "./components/Preloader"; 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import About from "./components/About";
@@ -16,7 +16,6 @@ import ScrollReveal from "./components/reactbits/ScrollReveal";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Mencegah scrollbar aktif saat animasi loading berjalan
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = "hidden";
