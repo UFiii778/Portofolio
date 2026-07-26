@@ -27,7 +27,7 @@ const Contact = () => {
       setResult(response.message);
       setIsSuccess(true);
       event.target.reset();
-      
+
 
       setTimeout(() => {
         setIsSuccess(false);
@@ -41,30 +41,34 @@ const Contact = () => {
 
   return (
     <section id="contact" className="w-full bg-white text-black py-20 px-[5%] sm:px-[10%] min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-      
-    
+
+
       <div className="absolute inset-0 pointer-events-none z-0 opacity-25 transform rotate-180">
         <Aurora
-          colorStops={["#0ea5e9", "#6366f1", "#a855f7"]} 
+          colorStops={["#000000", "#6366f1", "#FF0000"]}
           blend={0.5}
           amplitude={1.0}
           speed={0.6}
         />
       </div>
 
-     
-      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 mt-10">
-        
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.9 }}
+        className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 mt-10">
+
 
         <div className="lg:col-span-7 flex flex-col justify-center">
           <span className="text-sm font-semibold text-sky-600 mb-4 block tracking-wider uppercase">
             Contact us
           </span>
-          
+
           <div className="mb-6 flex justify-start">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-sky-400 shadow-md">
-              <Image 
-                src={assets.profile || "https://picsum.photos/200"} 
+              <Image
+                src={assets.profile || "https://picsum.photos/200"}
                 alt="Profile"
                 width={80}
                 height={80}
@@ -72,11 +76,11 @@ const Contact = () => {
               />
             </div>
           </div>
-          
-          <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight mb-4 text-sky-600 bg-gradient-to-r from-sky-500 to-indigo-600 bg-clip-text text-transparent">
+
+          <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight mb-4 text-sky-600 bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
             Get in Touch
           </h2>
-          
+
           <p className="text-gray-600 mb-12 mt-3 max-w-md font-light">
             Have a project in mind, a question, or just want to say hi? Drop a message below, and it will land straight in my inbox!
           </p>
@@ -133,7 +137,7 @@ const Contact = () => {
         </div>
 
         <div className="lg:col-span-5">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -142,9 +146,9 @@ const Contact = () => {
           >
             <AnimatePresence mode="wait">
               {!isSuccess ? (
-                <motion.form 
+                <motion.form
                   key="contact-form"
-                  onSubmit={onSubmit} 
+                  onSubmit={onSubmit}
                   className="space-y-5"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -179,10 +183,10 @@ const Contact = () => {
                     </label>
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 px-4 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-sky-500 to-indigo-600 hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-sky-500/20 disabled:opacity-75 flex items-center justify-center gap-2"
+                    className="w-full py-3 px-4 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-sky-500 to-slate-600 hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-sky-500/20 disabled:opacity-75 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -193,14 +197,14 @@ const Contact = () => {
                       "Send message"
                     )}
                   </button>
-                  
+
                   {result && !isSuccess && (
                     <p className="text-xs text-center text-gray-500 mt-2">{result}</p>
                   )}
                 </motion.form>
               ) : (
 
-                <motion.div 
+                <motion.div
                   key="success-message"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -214,7 +218,7 @@ const Contact = () => {
                   >
                     <CheckCircle2 className="w-16 h-16 text-emerald-500 drop-shadow" />
                   </motion.div>
-                  <motion.h3 
+                  <motion.h3
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -222,7 +226,7 @@ const Contact = () => {
                   >
                     Message Sent Successfully!
                   </motion.h3>
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
@@ -236,7 +240,7 @@ const Contact = () => {
           </motion.div>
         </div>
 
-      </div>
+      </motion.div>
 
     </section>
   );

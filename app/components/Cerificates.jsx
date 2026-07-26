@@ -117,11 +117,10 @@ const Certificates = () => {
                                     alt={selectedCert.title}
                                     fill
                                     sizes="(max-w-1024px) 100vw, 850px"
-                                    className="object-contain"
+                                    className="object-contain"  
                                     priority
                                 />
                             </div>
-
 
                             <div className="p-4 text-center">
                                 <h3 className="text-xl font-bold text-white font-Ovo">

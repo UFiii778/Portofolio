@@ -4,26 +4,37 @@ import "./globals.css";
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-outfit", // mendefinisikan variabel CSS
+  variable: "--font-outfit",
 });
 
-// 2. Konfigurasi font Ovo
 const ovo = Ovo({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-ovo", // mendefinisikan variabel CSS
+  variable: "--font-ovo",
 });
 
 export const metadata = {
   title: "Luthfi's Portofolio",
   description: "Personal Website",
+  icons: {
+    icon: [
+      {
+        url: '/icon-light.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en" className="scroll-smooth"
-      
+
     >
       <body className={`${outfit.variable} ${ovo.variable} antialiased`}>
         {children}

@@ -38,7 +38,7 @@ const Work = () => {
         transition={{ duration: 0.7, delay: 0.9 }} className="text-center mb-16 z-10">
         <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight">
           A small selection of{" "}
-          <span className="text-sky-600 bg-gradient-to-r from-sky-500 to-indigo-600 bg-clip-text text-transparent">
+          <span className="text-sky-600 bg-gradient-to-r from-sky-500 to-slate-900 bg-clip-text text-transparent">
             recent projects
           </span>
         </h2>

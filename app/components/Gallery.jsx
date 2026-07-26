@@ -10,7 +10,11 @@ import ScrollReveal from "./reactbits/ScrollReveal";
 
 const Gallery = () => {
     return (
-        <div id="social" className="w-11/12 max-w-5xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-6 py-20">
+        <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.9 }}
+            id="social" className="w-11/12 max-w-5xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-6 py-20">
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-3 font-Ovo font-medium text-black">
                 <motion.span
@@ -64,7 +68,7 @@ const Gallery = () => {
                 </ScrollReveal>
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 

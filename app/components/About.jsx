@@ -10,7 +10,7 @@ import LogoLoop from "./reactbits/LogoLoop";
 import {
     SiReact,
     SiNextdotjs,
-    SiTypescript,
+    SiJavascript,
     SiTailwindcss,
     SiSupabase,
     SiDji,
@@ -23,7 +23,7 @@ import {
 const techLogos = [
     { node: <SiReact />, title: "React", href: "https://react.dev" },
     { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiJavascript />, title: "JavaScript", href: "https://www.javascript.com" },
     { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
     { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
     { node: <SiDji />, title: "Dji", href: "https://dji.com" },

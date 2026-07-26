@@ -14,7 +14,7 @@ const Header = () => {
 
             <div className="absolute inset-0 pointer-events-none z-0 opacity-35">
                 <Aurora
-                    colorStops={["#0ea5e9", "#6366f1", "#a855f7"]} 
+                    colorStops={["#0ea5e9", "#6366f1", "#1D6599"]}
                     blend={0.5}
                     amplitude={1.0}
                     speed={0.6}

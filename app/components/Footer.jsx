@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { CgInstagram } from "react-icons/cg";
 import { LiaLinkedinIn } from "react-icons/lia";
-import { FaDiscord, FaSpotify } from "react-icons/fa";
+import { FaDiscord, FaSpotify, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
 
@@ -33,11 +33,7 @@ const Footer = () => {
     {
       name: "TikTok",
       href: "https://vt.tiktok.com/ZSXjc2r9f/",
-      icon: (
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.95.89 2.25 1.45 3.56 1.55V9.7c-1.25-.06-2.43-.53-3.41-1.3-.12-.09-.24-.2-.35-.31v5.88c.03 3.44-2.11 6.64-5.36 7.75-3.66 1.12-7.73-.55-9.43-3.93-1.89-3.5-.42-8.15 3.25-9.84.97-.42 2.03-.59 3.09-.5v3.94c-.81-.13-1.65.04-2.33.51-.97.64-1.46 1.87-1.21 3 .29 1.4 1.59 2.4 3.02 2.3 1.45.04 2.72-1.01 2.91-2.45.05-.33.05-.67.05-1V0h2.31z"/>
-        </svg>
-      ),
+      icon: <FaTiktok className="w-5 h-5" />
     },
   ];
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import PillNav from './reactbits/PillNav';
-import logo from '@/public/logo_dark.png';
+import logo from '@/public/icon-dark.png';
 import { label } from 'framer-motion/client';
 
 const Navbar = () => {

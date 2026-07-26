@@ -7,7 +7,6 @@ const Preloader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -26,7 +25,6 @@ const Preloader = ({ onComplete }) => {
 
   return (
     <motion.div
-
       exit={{ y: "-100vh" }}
       transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black"
@@ -42,7 +40,7 @@ const Preloader = ({ onComplete }) => {
         <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative">
 
           <motion.div 
-            className="h-full bg-gradient-to-r from-sky-400 to-white rounded-full"
+            className="h-full bg-gradient-to-r from-slate-100 to-sky-400 rounded-full"
             animate={{ width: `${Math.min(progress, 100)}%` }}
             transition={{ ease: "easeInOut", duration: 0.1 }}
           />
