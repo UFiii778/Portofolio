@@ -39,7 +39,7 @@ const Certificates = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 }}>
+                transition={{ duration: 0.3, delay: 0.5 }}>
                 <h4 className="text-center mb-2 text-lg font-Ovo">Achievements</h4>
                 <h2 className="text-center text-5xl font-Ovo">My Certificates</h2>
                 <p className="text-center text-gray-500 max-w-xl mx-auto mt-4 font-Ovo">
@@ -54,7 +54,7 @@ const Certificates = () => {
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
                         viewport={{ once: true }}
                         onClick={() => setSelectedCert(cert)}
                         className="bg-white border border-gray-200 rounded-2xl overflow-hidden p-4 flex flex-col justify-between shadow-sm cursor-pointer hover:shadow-md hover:-translate-y-1 duration-300 select-none"

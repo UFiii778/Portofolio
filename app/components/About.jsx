@@ -41,7 +41,7 @@ const About = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.9 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
                 className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
                 <div className="w-64 sm:w-80 rounded-3xl max-w-none">
                     <Image src={assets.mainMe} alt="user" className="w-full rounded-3xl" />
@@ -74,7 +74,10 @@ const About = () => {
 
             <h4 className="text-3xl sm:text-6xl lg:text-[46px] text-center mt-5">Tools I Use</h4>
 
-            <div className="mt-20" style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }} className="mt-20" style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
                 {/* Basic horizontal loop */}
                 <LogoLoop
                     logos={techLogos}
@@ -94,16 +97,21 @@ const About = () => {
                     logos={techLogos}
                     useCustomRender={true}
                 />
-            </div>
+            </motion.div>
 
-            <ScrollVelocity
-                texts={['@luthfiiizzz_', '@unsc.uk']}
-                velocity={100}
-                className="custom-scroll-text"
-                numCopies={6}
-                damping={50}
-                stiffness={400}
-            />
+            <motion.div
+            initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }}>
+                <ScrollVelocity
+                    texts={['@luthfiiizzz_', '@unsc.uk']}
+                    velocity={100}
+                    className="custom-scroll-text"
+                    numCopies={6}
+                    damping={50}
+                    stiffness={400}
+                />
+            </motion.div>
         </div>
     );
 };

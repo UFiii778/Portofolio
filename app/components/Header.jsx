@@ -25,7 +25,7 @@ const Header = () => {
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.9 }}
+                    transition={{ duration: 0.2, delay: 0.4 }}
                     className="inline-block min-w-[150px] text-3xl sm:text-6xl lg:text-[46px] text-left">Hi I'm
                     <RotatingText
                         texts={['Luthfi!', 'Kurao!']}
@@ -45,7 +45,7 @@ const Header = () => {
             <motion.h1
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.9, delay: 1.3 }} className="text-3xl sm:text-6xl lg:text-[55px] font-Ovo">
+                transition={{ duration: 0.4, delay: 0.6 }} className="text-3xl sm:text-6xl lg:text-[55px] font-Ovo">
                 Full Stack Web Developer & Drone's Pilot based in
                 <RotatingText
                     texts={['Indonesia', 'Singapore']}
@@ -66,13 +66,13 @@ const Header = () => {
             <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.9 }}>
+                transition={{ duration: 0.3, delay: 0.5 }}>
                 Building functional, interactive, and user-centric web applications
             </motion.p>
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.9 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
                 className="flex flex-col sm:flex-row items-center gap-4 mt-4">
                 <a href="#contact" className="px-10 py-3 border border-white rounded-full bg-sky-400 text-white flex items-center gap-2">Contact me <Contact2Icon className="w-4" /></a>
             </motion.div>

@@ -3,10 +3,19 @@
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
+import AccordionGallery from './reactbits/AccordionGallery';
 import CircularGallery from "./reactbits/CircularGallery";
 import { motion } from "motion/react"
 import { BsInstagram } from "react-icons/bs";
 import ScrollReveal from "./reactbits/ScrollReveal";
+
+const DEFAULT_ITEMS = [
+  { image: assets.Neo.src || assets.Neo, label: 'Drone Shoot' },
+  { image: assets.Rider.src || assets.Rider, label: 'Rider Era!' },
+  { image: assets.MineCraft.src || assets.MineCraft, label: 'Player too' },
+  { image: assets.CameraMan.src || assets.CameraMan, label: 'Event' },
+  { image: assets.Where.src || assets.Where, label: 'Shall we?' }
+];
 
 const Gallery = () => {
     return (
@@ -68,7 +77,29 @@ const Gallery = () => {
                 </ScrollReveal>
             </div>
 
+            <AccordionGallery
+                items={DEFAULT_ITEMS}
+                defaultIndex={2}
+                expandRatio={0.52}
+                trigger="hover"
+                accentColor="#ffffff"
+                overlayColor="#060010"
+                textColor="#ffffff"
+                grayscale
+                showLabels
+                duration={0.6}
+                ease="power3.out"
+                parallax={0.5}
+                tilt={8}
+                stagger={0.06}
+                height={460}
+                gap={10}
+                radius={16}
+                orientation="horizontal"
+            />
+
         </motion.div>
+
     )
 }
 

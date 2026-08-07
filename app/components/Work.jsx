@@ -35,7 +35,7 @@ const Work = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.9 }} className="text-center mb-16 z-10">
+        transition={{ duration: 0.3, delay: 0.5 }} className="text-center mb-16 z-10">
         <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight">
           A small selection of{" "}
           <span className="text-sky-600 bg-gradient-to-r from-sky-500 to-slate-900 bg-clip-text text-transparent">
@@ -51,7 +51,7 @@ const Work = () => {
             key={project.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            transition={{ duration: 0.3, delay: idx * 0.1 }}
             viewport={{ once: true }}
             className="bg-white/60 backdrop-blur-md border border-gray-200 rounded-3xl p-5 flex flex-col justify-between hover:border-sky-400/50 hover:shadow-xl transition-all duration-300 group"
           >
