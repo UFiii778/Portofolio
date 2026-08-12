@@ -29,7 +29,8 @@ export default function Home() {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
-      <Navbar />
+      <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
+        <Navbar />
         <Header />
         <About />
         <Certificates />
@@ -38,7 +39,7 @@ export default function Home() {
         <ScrollReveal />
         <Contact />
         <Footer />
-
+      </div>
     </>
   );
 }

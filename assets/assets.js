@@ -14,6 +14,7 @@ import CameraMan from './cameramen.webp';
 import Gemera from './gemera.webp';
 import MineCraft from './wanna-play.webp';
 import Where from './where.webp';
+import Me45 from './me45.webp';
 
 export const assets = {
     CameraMan,
@@ -29,7 +30,8 @@ export const assets = {
     mainMe,
     Rider,
     meOnyellow,
-    Neo
+    Neo,
+    Me45
 };
 
 

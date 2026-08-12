@@ -6,6 +6,7 @@ import React from "react";
 import { motion } from "motion/react"
 import ScrollVelocity from "./reactbits/ScrollVelocity";
 import LogoLoop from "./reactbits/LogoLoop";
+import TiltedCard from "./reactbits/TiltedCard";
 
 import {
     SiReact,
@@ -43,9 +44,20 @@ const About = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.5 }}
                 className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-                <div className="w-64 sm:w-80 rounded-3xl max-w-none">
-                    <Image src={assets.mainMe} alt="user" className="w-full rounded-3xl" />
-                </div>
+                <TiltedCard
+                    imageSrc={assets.Me45.src || assets.Me45}
+                    altText="Luthfi A - Just a human"
+                    captionText="Luthfi A - Shen"
+                    containerHeight="300px"
+                    containerWidth="300px"
+                    imageHeight="300px"
+                    imageWidth="100%"
+                    rotateAmplitude={9}
+                    scaleOnHover={1.1}
+                    showMobileWarning={false}
+                    showTooltip
+                    displayOverlayContent
+                />
                 <div className="flex-1">
                     <h2 className="mb-2 max-w-2xl text-5xl font-Ovo">
                         I Am <span className="px-2 sm:px-3 mb-3 max-w-2xl text-5xl bg-sky-400 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex">Luthfi Abdillah</span>
@@ -100,7 +112,7 @@ const About = () => {
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.5 }}>
                 <ScrollVelocity

@@ -45,7 +45,7 @@ const Gallery = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.9 }}
                 className="flex flex-col sm:flex-row items-center gap-4 mt-2">
-                <a href="https://www.instagram.com/luthfiiizzz_?igsh=Nm4xdnE1dmg4aHZy" className="px-10 py-3 border border-white rounded-full bg-sky-800 text-white flex items-center gap-2">Connect on Instagram <BsInstagram className="w-4" /></a>
+                <a href="https://www.instagram.com/luthfiiizzz_?igsh=Nm4xdnE1dmg4aHZy" className="px-10 py-3 border border-white rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white font-semibold py-2 px-6 rounded-full hover:opacity-90 transition-opacity shadow-lg flex items-center gap-2">Connect on Instagram <BsInstagram className="w-4" /></a>
             </motion.div>
 
             <motion.div
