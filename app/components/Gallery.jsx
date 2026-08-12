@@ -10,11 +10,11 @@ import { BsInstagram } from "react-icons/bs";
 import ScrollReveal from "./reactbits/ScrollReveal";
 
 const DEFAULT_ITEMS = [
-  { image: assets.Neo.src || assets.Neo, label: 'Drone Shoot' },
-  { image: assets.Rider.src || assets.Rider, label: 'Rider Era!' },
-  { image: assets.MineCraft.src || assets.MineCraft, label: 'Player too' },
-  { image: assets.CameraMan.src || assets.CameraMan, label: 'Event' },
-  { image: assets.Where.src || assets.Where, label: 'Shall we?' }
+    { image: assets.Neo.src || assets.Neo, label: 'Drone Shoot' },
+    { image: assets.Rider.src || assets.Rider, label: 'Rider Era!' },
+    { image: assets.MineCraft.src || assets.MineCraft, label: 'Player too' },
+    { image: assets.CameraMan.src || assets.CameraMan, label: 'Event' },
+    { image: assets.Where.src || assets.Where, label: 'Shall we?' }
 ];
 
 const Gallery = () => {
@@ -22,14 +22,14 @@ const Gallery = () => {
         <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.9 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
             id="social" className="w-11/12 max-w-5xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-6 py-20">
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-3 font-Ovo font-medium text-black">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.9 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
                     className="inline-block min-w-[150px] text-3xl sm:text-6xl lg:text-[46px] text-left">Beyond the Code
                 </motion.span>
             </div>
@@ -48,7 +48,10 @@ const Gallery = () => {
                 <a href="https://www.instagram.com/luthfiiizzz_?igsh=Nm4xdnE1dmg4aHZy" className="px-10 py-3 border border-white rounded-full bg-sky-800 text-white flex items-center gap-2">Connect on Instagram <BsInstagram className="w-4" /></a>
             </motion.div>
 
-            <div className="w-full max-w-4xl h-[500px] md:h-[600px] relative flex items-center justify-center mt-4 overflow-hidden">
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }} className="w-full max-w-4xl h-[500px] md:h-[600px] relative flex items-center justify-center mt-4 overflow-hidden">
                 <div className="w-full h-full absolute inset-0">
                     <CircularGallery
                         bend={0}
@@ -60,7 +63,7 @@ const Gallery = () => {
                         scrollSpeed={2}
                     />
                 </div>
-            </div>
+            </motion.div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-3 font-Ovo font-medium text-black">
                 <ScrollReveal
@@ -77,27 +80,33 @@ const Gallery = () => {
                 </ScrollReveal>
             </div>
 
-            <AccordionGallery
-                items={DEFAULT_ITEMS}
-                defaultIndex={2}
-                expandRatio={0.52}
-                trigger="hover"
-                accentColor="#ffffff"
-                overlayColor="#060010"
-                textColor="#ffffff"
-                grayscale
-                showLabels
-                duration={0.6}
-                ease="power3.out"
-                parallax={0.5}
-                tilt={8}
-                stagger={0.06}
-                height={460}
-                gap={10}
-                radius={16}
-                orientation="horizontal"
-            />
-
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+                className="w-full max-w-4xl h-auto md:h-[500px] lg:h-[600px] relative flex items-center justify-center gap-x-2 mt-4 overflow-hidden"
+            >
+                <AccordionGallery
+                    items={DEFAULT_ITEMS}
+                    defaultIndex={2}
+                    expandRatio={0.38}
+                    trigger="hover"
+                    accentColor="#ffffff"
+                    overlayColor="#060010"
+                    textColor="#ffffff"
+                    grayscale
+                    showLabels
+                    duration={0.6}
+                    ease="power3.out"
+                    parallax={0.5}
+                    tilt={0}
+                    stagger={0.06}
+                    height={460}
+                    gap={10}
+                    radius={16}
+                    orientation="horizontal"
+                />
+            </motion.div>
         </motion.div>
 
     )
