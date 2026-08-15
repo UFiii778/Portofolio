@@ -33,14 +33,14 @@ const Preloader = ({ onComplete }) => {
 
         <div className="flex justify-between items-end font-Ovo">
           <span className="text-sm text-gray-400 tracking-wider">Loading</span>
-          <span className="text-2xl font-bold text-sky-400">{Math.min(progress, 100)}%</span>
+          <span className="text-2xl font-bold text-white">{Math.min(progress, 100)}%</span>
         </div>
 
 
         <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative">
 
           <motion.div 
-            className="h-full bg-gradient-to-r from-slate-100 to-sky-400 rounded-full"
+            className="h-full bg-gradient-to-r from-slate-100 to-white rounded-full"
             animate={{ width: `${Math.min(progress, 100)}%` }}
             transition={{ ease: "easeInOut", duration: 0.1 }}
           />
