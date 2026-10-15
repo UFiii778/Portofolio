@@ -3,10 +3,10 @@
 import { assets, infoList } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 import ScrollVelocity from "./reactbits/ScrollVelocity";
 import LogoLoop from "./reactbits/LogoLoop";
-import TiltedCard from "./reactbits/TiltedCard";
+import Lanyard from "./reactbits/Lanyard";
 
 import {
     SiReact,
@@ -36,94 +36,75 @@ const techLogos = [
 
 const About = () => {
     return (
-        <div id="about" className="w-full px-[12%] py-10 scroll-mt-20">
+        <div id="about" className="w-full px-[8%] sm:px-[12%] py-10 scroll-mt-20 bg-neutral-50 dark:bg-neutral-950">
             <h4 className="text-center mb-2 text-lg font-Ovo">Introduction</h4>
 
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-                <TiltedCard
-                    imageSrc={assets.Me45.src || assets.Me45}
-                    altText="Luthfi A - Just a human"
-                    captionText="Luthfi A - Shen"
-                    containerHeight="300px"
-                    containerWidth="300px"
-                    imageHeight="300px"
-                    imageWidth="100%"
-                    rotateAmplitude={9}
-                    scaleOnHover={1.1}
-                    showMobileWarning={false}
-                    showTooltip
-                    displayOverlayContent
-                />
-                <div className="flex-1">
-                    <h2 className="mb-2 max-w-2xl text-5xl font-Ovo">
-                        I Am <span className="px-2 sm:px-3 mb-3 max-w-2xl text-5xl bg-sky-400 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex">Luthfi Abdillah</span>
-                    </h2>
-                    <p className="mb-10 max-w-2xl font-Ovo">
+            <div className="flex w-full flex-col lg:flex-row items-center gap-12 lg:gap-20 my-16">
+                
+                {/* Container Lanyard dengan Border & Responsive Height/Width */}
+                <div className="relative w-full max-w-sm lg:max-w-md h-[420px] sm:h-[500px] lg:h-[550px] rounded-3xl border border-gray-200 dark:border-neutral-800 bg-white/40 dark:bg-neutral-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center p-2">
+                    <Lanyard 
+                        frontImage={assets.Me45?.src || assets.Me45} 
+                        backImage={assets.MineCraft?.src || assets.MineCraft} 
+                        strapImage="/band.png"
+                        imageFit="cover"
+                        cardColor="#ffffff"
+                        orientation="portrait"
+                        finish="glossy"
+                        cornerRadius={0.3}
+                        size={0.6}
+                        anchor="center"
+                        strapLength={0.5}
+                        strapColor="#111111"
+                        strapWidth={0.65}
+                        metal="silver"
+                        gravity={1}
+                        damping={0.5}
+                        elasticity={0.5}
+                        breeze={0.5}
+                        interactive
+                    />
+                </div>
+
+                {/* Deskripsi Teks */}
+                <div className="flex-1 text-center lg:text-left">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-4 max-w-2xl text-3xl sm:text-5xl font-Ovo leading-tight"
+                    >
+                        I Am <span className="px-2 sm:px-3 my-1 bg-sky-400 text-white rounded-lg inline-flex">Luthfi Abdillah</span>
+                    </motion.h2>
+                    <p className="mb-10 max-w-2xl font-Ovo text-gray-600 dark:text-gray-300 text-base sm:text-lg">
                         I am a Software Engineering student based in Bandung. As an aspiring developer, I am deeply passionate about continuous learning and sharpening my skills. My ultimate goal is to grow into a world-class engineer and contribute to impactful tech companies in the future.
                     </p>
-
-                    <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-                        {infoList.map((info, index) => {
-                            const IconComponent = info.icon;
-
-                            return (
-                                <li className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500" key={index}>
-
-                                    <IconComponent className="w-7 h-7 mt-3 text-sky-500 dark:text-sky-400" />
-
-                                    <h3 className="my-4 font-semibold text-gray-700 dark:text-white">{info.title}</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm">{info.description}</p>
-                                </li>
-                            );
-                        })}
-                    </ul>
                 </div>
-            </motion.div>
+            </div>
 
-            <h4 className="text-3xl sm:text-6xl lg:text-[46px] text-center mt-5">Tools I Use</h4>
+            <h4 className="text-3xl sm:text-6xl lg:text-[46px] text-center mt-5 font-Ovo">Tools I Use</h4>
 
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }} className="mt-20" style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
-                {/* Basic horizontal loop */}
+            <div className="mt-12" style={{ width: '100%', height: '160px', position: 'relative', overflow: 'hidden' }}>
                 <LogoLoop
                     logos={techLogos}
                     speed={100}
                     direction="left"
-                    logoHeight={60}
-                    gap={60}
+                    logoHeight={50}
+                    gap={50}
                     hoverSpeed={0}
                     scaleOnHover
                     fadeOut
-                    fadeOutColor="#ffffff"
                     ariaLabel="Technology partners"
                 />
+            </div>
 
-                {/* Vertical loop with deceleration on hover */}
-                <LogoLoop
-                    logos={techLogos}
-                    useCustomRender={true}
-                />
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}>
-                <ScrollVelocity
-                    texts={['@luthfiiizzz_', '@unsc.uk']}
-                    velocity={100}
-                    className="custom-scroll-text"
-                    numCopies={6}
-                    damping={50}
-                    stiffness={400}
-                />
-            </motion.div>
+            <ScrollVelocity
+                texts={['@luthfiiizzz_', '@unsc.uk']}
+                velocity={100}
+                className="custom-scroll-text"
+                numCopies={6}
+                damping={50}
+                stiffness={400}
+            />
         </div>
     );
 };

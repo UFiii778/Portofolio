@@ -33,12 +33,11 @@ const Certificates = () => {
     ];
 
     return (
-        <div id="certificates" className="w-full px-[12%] py-16 scroll-mt-20">
-            {/* Heading Section */}
+        <div id="certificates" className="w-full px-[12%] py-16 scroll-mt-20 bg-slate-50 dark:bg-black">
 
             <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.5 }}>
                 <h4 className="text-center mb-2 text-lg font-Ovo">Achievements</h4>
                 <h2 className="text-center text-5xl font-Ovo">My Certificates</h2>

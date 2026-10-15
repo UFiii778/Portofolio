@@ -1,53 +1,61 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-const Preloader = ({ onComplete }) => {
+export default function Preloader({ onComplete }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    // Simulasi perhitungan loading 0% sampai 100%
+    const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(timer);
-          
-          setTimeout(onComplete, 400);
+          clearInterval(interval);
+          setTimeout(() => {
+            if (onComplete) onComplete();
+          }, 400); // Penundaan singkat sebelum layar terangkat
           return 100;
         }
-
-        return prev + Math.floor(Math.random() * 15) + 5;
+        return prev + 1;
       });
-    }, 100);
+    }, 20); // Kecepatan counter (semakin kecil nilainya, semakin cepat)
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, [onComplete]);
 
   return (
     <motion.div
-      exit={{ y: "-100vh" }}
-      transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black"
+      initial={{ y: 0 }}
+      exit={{ y: '-100%' }}
+      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }} // Kurva transisi smooth
+      className="fixed inset-0 z-50 flex flex-col justify-between bg-black text-white p-8 md:p-12 select-none"
     >
-      <div className="w-[250px] sm:w-[350px] flex flex-col gap-4">
+      {/* Header Preloader */}
+      <div className="flex justify-between items-center text-xs md:text-sm uppercase tracking-widest text-neutral-400">
+        <span>Creative Studio</span>
+        <span>Amsterdam / ID</span>
+      </div>
 
-        <div className="flex justify-between items-end font-Ovo">
-          <span className="text-sm text-gray-400 tracking-wider">Loading</span>
-          <span className="text-2xl font-bold text-white">{Math.min(progress, 100)}%</span>
-        </div>
+      {/* Brand / Logo Center */}
+      <div className="text-center overflow-hidden">
+        <motion.h1
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-8xl font-black tracking-tighter uppercase"
+        >
+          REKORDER
+        </motion.h1>
+      </div>
 
-
-        <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative">
-
-          <motion.div 
-            className="h-full bg-gradient-to-r from-slate-100 to-white rounded-full"
-            animate={{ width: `${Math.min(progress, 100)}%` }}
-            transition={{ ease: "easeInOut", duration: 0.1 }}
-          />
-        </div>
+      {/* Counter Progress */}
+      <div className="flex justify-between items-end border-t border-neutral-800 pt-4">
+        <span className="text-xs text-neutral-500 font-mono">LOADING EXPERIENCE</span>
+        <span className="text-6xl md:text-9xl font-mono font-light tracking-tighter">
+          {progress}%
+        </span>
       </div>
     </motion.div>
   );
-};
-
-export default Preloader;
+}
