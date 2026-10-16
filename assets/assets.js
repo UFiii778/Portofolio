@@ -15,6 +15,12 @@ import Gemera from './gemera.webp';
 import MineCraft from './wanna-play.webp';
 import Where from './where.webp';
 import Me45 from './me45.webp';
+import Back from './back.jpeg';
+import Lan from './pi.webp';
+import Mp2 from './mp2.png';
+import Pkl from './pkl.png';
+import RplCn from './rpl.png';
+import Unbar from './unbar.png';
 
 export const assets = {
     CameraMan,
@@ -31,13 +37,19 @@ export const assets = {
     Rider,
     meOnyellow,
     Neo,
-    Me45
+    Me45,
+    Back,
+    Lan,
+    Mp2,
+    Pkl,
+    RplCn,
+    Unbar
 };
 
 
 export const infoList = [
     { 
-        icon: FaCode, // Cukup tulis seperti ini, tidak perlu iconDark lagi karena bisa diwarnai lewat Tailwind
+        icon: FaCode, 
         title: 'My Fav Tech', 
         description: 'JavaScript, React Js, Next Js, Typescript, php, Laravel' 
     },

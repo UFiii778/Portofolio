@@ -1,8 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-import Preloader from "./components/Preloader"; 
+import React from "react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import About from "./components/About";
@@ -11,24 +9,20 @@ import Work from "./components/Work";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contach";
 import Footer from "./components/Footer";
+import Views from "./components/Views";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <Preloader onComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
-
-      {!isLoading && <Navbar />}
+      <Navbar />
       
       <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
         <Header />
         <About />
+        <Certificates />
+        <Work />
         <Gallery />
+        <Views />
         <Contact />
         <Footer />
       </div>

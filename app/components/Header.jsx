@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import RotatingText from "./reactbits/RotatingText";
-import { Contact2Icon } from "lucide-react";
+import { ArrowDownRight, Mail } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import { assets } from "@/assets/assets";
 import GradientASCII from "./reactbits/GradientASCII";
 
@@ -29,19 +30,18 @@ const Header = () => {
     }, []);
 
     const lightColors = ["#0284c7", "#e0f2fe", "#38bdf8", "#0369a1"];
-    const darkColors = ["#0284c7", "#0f172a", "#1e293b", "#0284c7"];
+    const darkColors = ["#0284c7", "#FFFFFF", "#1161A6", "#00D0FF"];
 
     return (
         <div className="relative w-full h-screen overflow-hidden bg-neutral-50 dark:bg-neutral-950 transition-colors duration-500">
-            {/* Background ASCII Gradient */}
             <div className="absolute inset-0 z-0">
                 <GradientASCII
                     lightMode={!isDarkMode}
                     colors={isDarkMode ? darkColors : lightColors}
                     shape="horizon"
                     cellSize={16}
-                    density={0.75}
-                    glyphOpacity={0.7}
+                    density={0.5}
+                    glyphOpacity={0.85}
                     glow={isDarkMode ? 0.4 : 0.1}
                     softness={0.6}
                     speed={0.8}
@@ -49,6 +49,7 @@ const Header = () => {
                     grain={0.05}
                     mouseInteraction={true}
                     clickEffect="wave"
+                    intro
                 />
             </div>
 
@@ -63,29 +64,30 @@ const Header = () => {
                 }}
                 className="relative z-10 w-11/12 max-w-3xl mx-auto h-full flex flex-col gap-4 text-center items-center justify-center px-4"
             >
-                <div className="mb-6 flex justify-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-md">
+                <div className="mb-2 flex justify-center">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-xl bg-white dark:bg-neutral-800 shrink-0">
                         <Image
                             src={assets.profile || "https://picsum.photos/200"}
                             alt="Profile"
-                            width={80}
-                            height={80}
+                            width={96}
+                            height={96}
                             className="object-cover w-full h-full"
                         />
                     </div>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-2 font-Ovo font-medium">
+
+                <div className="flex flex-wrap items-center justify-center gap-x-2 text-xl md:text-5xl mb-1 font-Ovo font-medium">
                     <motion.span
                         initial={{ opacity: 0 }}
-                        animate ={{ opacity: 1, y: 0}}
+                        animate={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 1.2 }}
+                        transition={{ delay: 0.4 }}
                         className="inline-block min-w-[150px] text-3xl sm:text-6xl lg:text-[46px] text-left text-neutral-900 dark:text-white"
                     >
                         Hi I'm{" "}
                         <RotatingText
                             texts={["Luthfi!", "Kurao!"]}
-                            mainClassName="px-2 sm:px-3 bg-sky-500 dark:bg-sky-600 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex shadow-sm"
+                            mainClassName="px-2 sm:px-3 bg-neutral-500 dark:bg-sky-600 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex shadow-sm"
                             staggerFrom="last"
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
@@ -102,13 +104,13 @@ const Header = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.3 }}
-                    className="text-3xl sm:text-5xl lg:text-[52px] font-Ovo leading-tight text-gray-800 dark:text-gray-100"
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                    className="text-2xl sm:text-4xl lg:text-[44px] font-Ovo leading-tight text-gray-800 dark:text-gray-100"
                 >
                     Full Stack Web Developer & Drone's Pilot based in{" "}
                     <RotatingText
                         texts={["Indonesia", "Singapore"]}
-                        mainClassName="px-2 sm:px-2 md:px-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-sky-600 dark:text-sky-400 overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg inline-flex border border-gray-200 dark:border-slate-700 shadow-sm"
+                        mainClassName="px-2 sm:px-2 md:px-3 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-neutral-900 dark:text-sky-400 overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg inline-flex border border-gray-200 dark:border-slate-700 shadow-sm"
                         staggerFrom="last"
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
@@ -123,30 +125,42 @@ const Header = () => {
                     />
                 </motion.h1>
 
-                {/* Subtitle Deskripsi */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
-                    className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-xl font-Ovo"
-                >
-                    Building functional, interactive, and user-centric web applications
-                </motion.p>
-
-                {/* Tombol CTA */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.45 }}
-                    className="flex flex-col sm:flex-row items-center gap-4 mt-2"
+                    transition={{ duration: 0.5, delay: 0.65 }}
+                    className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
                 >
                     <a
-                        href="#contact"
-                        className="px-8 py-3 rounded-full bg-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-500 text-white flex items-center gap-2 shadow-md hover:shadow-sky-500/25 transition-all duration-200 font-medium active:scale-95"
+                        href="#work"
+                        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 px-7 text-sm font-medium text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-sky-500/40 active:scale-95"
                     >
-                        Contact me <Contact2Icon className="w-4 h-4" />
+                        <span className="relative z-10 flex items-center gap-2">
+                            View My Work
+                            <ArrowDownRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+                        </span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-sky-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    </a>
+
+                    <a
+                        href="#contact"
+                        className="group relative inline-flex h-12 items-center justify-center rounded-full border border-neutral-300/80 bg-white/70 px-7 text-sm font-medium text-neutral-800 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-md active:scale-95 dark:border-white/15 dark:bg-neutral-900/60 dark:text-neutral-200 dark:hover:border-sky-400 dark:hover:bg-neutral-900"
+                    >
+                        <span className="flex items-center gap-2">
+                            Get in Touch
+                            <Mail className="h-4 w-4 text-sky-500 transition-transform duration-300 group-hover:scale-110 dark:text-sky-400" />
+                        </span>
+                    </a>
+
+                    <a
+                        href="https://github.com/UFiii778"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub Profile"
+                        className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300/80 bg-white/70 text-neutral-700 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-neutral-900 hover:text-white hover:shadow-md active:scale-95 dark:border-white/15 dark:bg-neutral-900/60 dark:text-neutral-300  dark:hover:bg-white dark:hover:text-neutral-900"
+                    >
+                        <FaGithub className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
                     </a>
                 </motion.div>
             </motion.div>

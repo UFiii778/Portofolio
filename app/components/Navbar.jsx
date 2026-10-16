@@ -93,9 +93,8 @@ const Navbar = () => {
                             { label: 'Social', href: '#social' },
                             { label: 'Contact', href: '#contact' },
                             {
-                                label: '',
-                                icon: <AnimatedThemeToggler className="flex items-center justify-center p-1" variant="circle" />,
-                                href: ''
+                                label: <AnimatedThemeToggler asChild />,
+                                onClick: () => { }
                             }
                         ]}
                         activeHref="/"

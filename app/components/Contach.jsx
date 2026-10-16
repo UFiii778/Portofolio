@@ -1,17 +1,37 @@
 "use client";
 
 import { assets } from "@/assets/assets";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { sendEmail } from "@/app/actions/sendEmail";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, MessageSquare, MapPin, Phone, Loader2, CheckCircle2 } from "lucide-react";
-import { AuroraBackground } from "./ui/aurora-background";
+import GradientASCII from "./reactbits/GradientASCII";
 
 const Contact = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDarkMode();
+
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const lightColors = ["#0284c7", "#e0f2fe", "#38bdf8", "#0369a1"];
+  const darkColors = ["#0284c7", "#FFFFFF", "#1161A6", "#00D0FF"];
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -39,75 +59,100 @@ const Contact = () => {
 
   return (
     <section id="contact" className="w-full bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 py-20 px-[5%] sm:px-[10%] min-h-screen flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500">
-
+      
+      {/* Background Gradient ASCII */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <GradientASCII
+          lightMode={!isDarkMode}
+          colors={isDarkMode ? darkColors : lightColors}
+          shape="rise"
+          cellSize={16}
+          density={0.5}
+          glyphOpacity={0.85}
+          glow={isDarkMode ? 0.4 : 0.1}
+          softness={0.6}
+          speed={0.8}
+          gradientOpacity={isDarkMode ? 0.8 : 0.6}
+          grain={0.05}
+          mouseInteraction={true}
+          clickEffect="wave"
+          intro
+        />
+      </div>
 
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 mt-10"
+        className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 z-10 mt-10 relative"
       >
 
-        <div className="lg:col-span-7 flex flex-col justify-center">
-          <span className="text-sm font-semibold text-sky-600 dark:text-sky-400 mb-4 block tracking-wider uppercase">
+        {/* Column Kiri - Info Kontak dengan Efek Glass Container */}
+        <div className="lg:col-span-7 flex flex-col justify-center p-6 sm:p-8 rounded-3xl bg-white/40 dark:bg-neutral-900/40 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-xl">
+          <span className="text-sm font-semibold text-sky-600 dark:text-sky-400 mb-2 block tracking-wider uppercase">
             Contact us
           </span>
 
-          <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight mb-4 text-sky-600 dark:text-sky-400 bg-gradient-to-r from-sky-500 to-blue-600 dark:from-sky-400 dark:to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-5xl font-bold font-Ovo tracking-tight mb-3 text-sky-600 dark:text-sky-400 bg-gradient-to-r from-sky-500 to-blue-600 dark:from-sky-400 dark:to-blue-400 bg-clip-text text-transparent">
             Get in Touch
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-12 mt-3 max-w-md font-light">
+          <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-md font-light leading-relaxed">
             Have a project in mind, a question, or just want to say hi? Drop a message below, and it will land straight in my inbox!
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10">
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-neutral-900 border border-sky-100 dark:border-neutral-800 flex items-center justify-center text-sky-600 dark:text-sky-400 flex-shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Email Glass Card */}
+            <div className="flex gap-3.5 p-3.5 rounded-2xl bg-white/50 dark:bg-neutral-800/50 backdrop-blur-md border border-white/40 dark:border-neutral-700/50">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200">Email</h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Our friendly team is here to help.</p>
-                <a href="mailto:kuraoshen@gmail.com" className="text-sm font-medium text-sky-600 dark:text-sky-400 hover:underline">kuraoshen@gmail.com</a>
+                <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">Email</h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Our friendly team is here to help.</p>
+                <a href="mailto:kuraoshen@gmail.com" className="text-xs font-medium text-sky-600 dark:text-sky-400 hover:underline">kuraoshen@gmail.com</a>
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-neutral-900 border border-sky-100 dark:border-neutral-800 flex items-center justify-center text-sky-600 dark:text-sky-400 flex-shrink-0">
+            {/* Live Chat Glass Card */}
+            <div className="flex gap-3.5 p-3.5 rounded-2xl bg-white/50 dark:bg-neutral-800/50 backdrop-blur-md border border-white/40 dark:border-neutral-700/50">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0">
                 <MessageSquare className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200">Live chat</h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Our friendly team is here to help.</p>
-                <span className="text-sm font-medium text-sky-600 dark:text-sky-400 cursor-pointer hover:underline">Start new chat</span>
+                <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">Live chat</h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Our friendly team is here to help.</p>
+                <span className="text-xs font-medium text-sky-600 dark:text-sky-400 cursor-pointer hover:underline">Start new chat</span>
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-neutral-900 border border-sky-100 dark:border-neutral-800 flex items-center justify-center text-sky-600 dark:text-sky-400 flex-shrink-0">
+            {/* Office Glass Card */}
+            <div className="flex gap-3.5 p-3.5 rounded-2xl bg-white/50 dark:bg-neutral-800/50 backdrop-blur-md border border-white/40 dark:border-neutral-700/50">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200">Office</h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Come say hello at our office HQ.</p>
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 leading-relaxed">Bandung, West Java, Indonesia</p>
+                <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">Office</h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Come say hello at our office HQ.</p>
+                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 leading-relaxed">Bandung, West Java, Indonesia</p>
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-neutral-900 border border-sky-100 dark:border-neutral-800 flex items-center justify-center text-sky-600 dark:text-sky-400 flex-shrink-0">
+            {/* Phone Glass Card */}
+            <div className="flex gap-3.5 p-3.5 rounded-2xl bg-white/50 dark:bg-neutral-800/50 backdrop-blur-md border border-white/40 dark:border-neutral-700/50">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200">Phone</h4>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Mon-Fri from 8am to 5pm.</p>
-                <a href="tel:+12345678" className="text-sm font-medium text-sky-600 dark:text-sky-400 hover:underline">+62 898-9232-829</a>
+                <h4 className="font-semibold text-sm text-gray-800 dark:text-gray-200">Phone</h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Mon-Fri from 8am to 5pm.</p>
+                <a href="tel:+628989232829" className="text-xs font-medium text-sky-600 dark:text-sky-400 hover:underline">+62 898-9232-829</a>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Column Kanan - Form Email */}
         <div className="lg:col-span-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

@@ -13,11 +13,11 @@ const GALLERY_ITEMS = [
     { image: assets.Rider?.src || assets.Rider, text: 'Rider Era!' },
     { image: assets.MineCraft?.src || assets.MineCraft, text: 'Player too' },
     { image: assets.CameraMan?.src || assets.CameraMan, text: 'Event' },
+    { image: assets.meOnyellow?.src || assets.meOnyellow, text: '2020 Era' },
     { image: assets.Where?.src || assets.Where, text: 'Shall we?' }
 ];
 
 const Gallery = () => {
-    // 1. State untuk mendeteksi apakah sedang mode dark atau light
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
@@ -27,7 +27,6 @@ const Gallery = () => {
 
         checkDarkMode();
 
-        // Amati perubahan class pada <html> saat tombol theme toggler diklik
         const observer = new MutationObserver(checkDarkMode);
         observer.observe(document.documentElement, {
             attributes: true,

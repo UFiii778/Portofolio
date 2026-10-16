@@ -140,9 +140,9 @@ const contrastInk = color => {
   const full =
     hex.length === 3
       ? hex
-          .split('')
-          .map(c => c + c)
-          .join('')
+        .split('')
+        .map(c => c + c)
+        .join('')
       : hex;
   const channel = index => {
     const value = parseInt(full.slice(index, index + 2), 16) / 255;
@@ -525,7 +525,7 @@ const PillNav = ({
       wake();
     });
     if (trackRef.current) resizeObserver.observe(trackRef.current);
-    document.fonts?.ready?.then(() => engine.refresh()).catch(() => {});
+    document.fonts?.ready?.then(() => engine.refresh()).catch(() => { });
     window.addEventListener('pointerup', engine.release);
     window.addEventListener('pointercancel', engine.release);
 
@@ -720,12 +720,15 @@ const PillNav = ({
   };
 
   const link = (item, props, children) => {
-    if (!item.href) {
+    if (item.onClick && !item.href) {
       return (
         <button type="button" {...props}>
           {children}
         </button>
       );
+    }
+    if (!item.href) {
+      return <div {...props}>{children}</div>;
     }
     return (
       <LinkComponent href={item.href} {...props}>

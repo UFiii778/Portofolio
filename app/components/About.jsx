@@ -7,6 +7,8 @@ import { motion } from "motion/react";
 import ScrollVelocity from "./reactbits/ScrollVelocity";
 import LogoLoop from "./reactbits/LogoLoop";
 import Lanyard from "./reactbits/Lanyard";
+import TechText from "./reactbits/Techtext";
+import { Highlighter } from "@/components/ui/highlighter";
 
 import {
     SiReact,
@@ -40,13 +42,11 @@ const About = () => {
             <h4 className="text-center mb-2 text-lg font-Ovo">Introduction</h4>
 
             <div className="flex w-full flex-col lg:flex-row items-center gap-12 lg:gap-20 my-16">
-                
-                {/* Container Lanyard dengan Border & Responsive Height/Width */}
+
                 <div className="relative w-full max-w-sm lg:max-w-md h-[420px] sm:h-[500px] lg:h-[550px] rounded-3xl border border-gray-200 dark:border-neutral-800 bg-white/40 dark:bg-neutral-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center p-2">
-                    <Lanyard 
-                        frontImage={assets.Me45?.src || assets.Me45} 
-                        backImage={assets.MineCraft?.src || assets.MineCraft} 
-                        strapImage="/band.png"
+                    <Lanyard
+                        frontImage={assets.Lan?.src || assets.Lan}
+                        backImage={assets.Back?.src || assets.Back}
                         imageFit="cover"
                         cardColor="#ffffff"
                         orientation="portrait"
@@ -66,17 +66,40 @@ const About = () => {
                     />
                 </div>
 
-                {/* Deskripsi Teks */}
                 <div className="flex-1 text-center lg:text-left">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="mb-4 max-w-2xl text-3xl sm:text-5xl font-Ovo leading-tight"
-                    >
-                        I Am <span className="px-2 sm:px-3 my-1 bg-sky-400 text-white rounded-lg inline-flex">Luthfi Abdillah</span>
-                    </motion.h2>
-                    <p className="mb-10 max-w-2xl font-Ovo text-gray-600 dark:text-gray-300 text-base sm:text-lg">
-                        I am a Software Engineering student based in Bandung. As an aspiring developer, I am deeply passionate about continuous learning and sharpening my skills. My ultimate goal is to grow into a world-class engineer and contribute to impactful tech companies in the future.
+                    <TechText
+                        text="Luthfi A+"
+                        fontWeight={600}
+                        fontSize={150}
+                        reveal="letter"
+                        dashLength={4}
+                        dashGap={7}
+                        specks={15}
+                        intro="type"
+                        introDuration={2}
+                        clickKick
+                        guides={false}
+                        fontFamily="Syne, sans-serif"
+                        letterSpacing={-0.001}
+                        accentColor="currentColor"
+                        reach={200}
+                        softness={0.7}
+                        lineStyle="dashed"
+                        strokeWidth={2}
+                        speed={1}
+                        bounce={0.4}
+                        selection
+                        labels
+                        color="currentColor"
+                        align="center"
+                        draggable
+                        sweep
+                    />
+                    <p className="mb-10 max-w-2xl font-Ovo text-gray-900 dark:text-gray-300 text-base sm:text-lg">
+                        I am a Software Engineering student {" "} <Highlighter action="underline" color="#F54927"> based in Bandung. </Highlighter> As an aspiring 
+                        {" "} <Highlighter action="highlight" color="#27A3F5"> Developer, </Highlighter> 
+                        I am deeply passionate about continuous learning and sharpening my skills.{" "} 
+                        <Highlighter action="underline" color="#54F527">My ultimate goal</Highlighter> is to grow into a world-class engineer and contribute to impactful tech companies in the future.
                     </p>
                 </div>
             </div>
