@@ -134,13 +134,13 @@ const Header = () => {
                 >
                     <a
                         href="#work"
-                        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 px-7 text-sm font-medium text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-sky-500/40 active:scale-95"
+                        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-neutral-100 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 px-7 text-sm font-medium text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-700/60 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-sky-500/30 dark:hover:shadow-sky-500/40 active:scale-95"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             View My Work
                             <ArrowDownRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
                         </span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-sky-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-grey-600 to-sky-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </a>
 
                     <a
