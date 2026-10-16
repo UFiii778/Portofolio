@@ -193,7 +193,7 @@ export default function Views() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="mt-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 py-2.5 text-sm font-medium text-white shadow-md transition-all hover:scale-[1.01] hover:shadow-sky-500/25 active:scale-95 disabled:opacity-50"
+                    className="mt-1 flex items-center justify-center gap-2 rounded-xl bg-neutral-500 py-2.5 text-sm font-medium text-white shadow-md transition-all hover:scale-[1.01] hover:shadow-sky-500/25 active:scale-95 disabled:opacity-50"
                   >
                     {loading ? (
                       <>
