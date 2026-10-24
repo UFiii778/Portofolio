@@ -221,7 +221,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 px-4 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-sky-500 to-neutral-900 dark:from-sky-600 dark:to-neutral-700 hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-sky-500/20 dark:shadow-sky-500/10 disabled:opacity-75 flex items-center justify-center gap-2"
+                    className="w-full py-3 px-4 rounded-xl text-white font-medium text-sm bg-gradient-to-r from-neutral-100 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 px-7 text-sm font-medium text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-700/60 shadow-lg shadow-sky-500/10 dark:shadow-sky-500/20 flex items-center justify-center gap-2"
                     suppressHydrationWarning
                   >
                     {isSubmitting ? (

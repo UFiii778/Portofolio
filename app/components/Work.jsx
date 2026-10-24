@@ -10,14 +10,14 @@ const projects = [
     description:
       "Digital guest book and visitor management platform for institutions and schools.",
     thumbnail: assets.thumbnailS,
-    link: "https://sowanqr.vercel.app/",
+    link: "#",
   },
   {
     title: "Darahkita",
     description:
       "A digital blood donation platform connecting blood donors with people who need them.",
     thumbnail: assets.thumbnailD,
-    link: "https://darahkita.web.id/",
+    link: "#",
   },
   {
     title: "PKLICB",

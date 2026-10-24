@@ -19,7 +19,6 @@ const Header = () => {
 
         checkDarkMode();
 
-        // Amati perubahan class pada <html> untuk perubahan tema langsung
         const observer = new MutationObserver(checkDarkMode);
         observer.observe(document.documentElement, {
             attributes: true,
